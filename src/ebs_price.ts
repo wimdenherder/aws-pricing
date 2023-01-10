@@ -150,7 +150,7 @@ export class EBSPrice {
         }
 
         return prices.filter(price => {
-            return Utils.endsWith(price.attributes['usagetype'], usageType)
+            return Utils.endsWith(price.attributes['aws:ec2:usagetype'], usageType)
         })
     }
 
