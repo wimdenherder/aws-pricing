@@ -23,8 +23,8 @@ export class RDSPrice {
             throw `The No-Upfront payment option is not supported for 3 year RDS RIs`
         }
 
-        let pricePath = Utilities.formatString("/pricing/1.0/rds/%s/%s/%sindex.json",
-            this.dbEngineUrlParam(), this.purchaseTypeUrlParam(), this.azUrlParam())
+        let pricePath = Utilities.formatString("/pricing/1.0/rds/region/%s/%s/%s/%s/index.json",
+           this.settings.get('region'), this.dbEngineUrlParam(), this.purchaseTypeUrlParam(), this.azUrlParam());
 
         console.log({pricePath})
 
@@ -126,7 +126,7 @@ export class RDSPrice {
     }
 
     private azUrlParam(): string {
-        return "single_az/"
+        return "single_az"
     }
 
     // hi john!
