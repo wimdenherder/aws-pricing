@@ -129,6 +129,8 @@ export class RDSPrice {
         return "single_az/"
     }
 
+    // hi john!
+
     private isAurora(): boolean {
         return this.dbEngine === RDSDbEngine.Aurora_Mysql || this.dbEngine === RDSDbEngine.Aurora_Postgresql
     }
