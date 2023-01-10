@@ -26,6 +26,8 @@ export class RDSPrice {
         let pricePath = Utilities.formatString("/pricing/1.0/rds/%s/%s/%sindex.json",
             this.dbEngineUrlParam(), this.purchaseTypeUrlParam(), this.azUrlParam())
 
+        console.log({pricePath})
+
         let body = Context.ctxt().awsDataLoader.loadPath(pricePath, this.transformPayload)
 
         let resp = JSON.parse(body)
@@ -124,11 +126,7 @@ export class RDSPrice {
     }
 
     private azUrlParam(): string {
-        if (this.isAurora()) {
-            return "single_az"
-        } else {
-            return "single_az/"
-        }
+        return "single_az/"
     }
 
     private isAurora(): boolean {

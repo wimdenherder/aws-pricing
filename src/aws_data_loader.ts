@@ -15,6 +15,7 @@ export class AwsDataLoader {
     }
 
     loadPath(path: string, transform?: AwsDataLoaderTransform): string {
+        console.log('loadPath: ' + path)
         let data = this.cache.get(path)
         if (data != null) {
             return data
@@ -34,6 +35,7 @@ export class AwsDataLoader {
 
     private loadUrl(url: string) {
         let resp;
+        console.log('fetching: ' + url);
         try {
             resp = UrlFetchApp.fetch(url);
         } catch (e) {

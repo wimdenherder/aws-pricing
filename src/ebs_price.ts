@@ -59,6 +59,8 @@ export class EBSPrice {
 
         let resp = JSON.parse(body)
 
+        console.log(JSON.stringify(resp, null, 2));
+
         // io2 IOPS is tiered
         if (this.storageType === EBSStorageType.Iops && this.volumeType === "io2") {
             return this.tieredIO2IOPS(resp.prices, volumeUnitsNum)
@@ -140,15 +142,15 @@ export class EBSPrice {
     }
 
     private filterPricesVolumeIopsIO2(prices, tier: string) {
-        let usageType = 'EBS:VolumeUsage.io2'; 
+        let usageType = 'EBS:VolumeP-IOPS.io2'; 
         if (tier === 'tier2') {
-            usageType = 'EBS:VolumeUsage.io2.tier2';
+            usageType = 'EBS:VolumeP-IOPS.io2.tier2';
         } else if (tier === 'tier3') {
-            usageType = 'EBS:VolumeUsage.io2.tier3';
+            usageType = 'EBS:VolumeP-IOPS.io2.tier3';
         }
 
         return prices.filter(price => {
-            return Utils.endsWith(price.attributes['aws:ec2:usagetype'], usageType)
+            return Utils.endsWith(price.attributes['usagetype'], usageType)
         })
     }
 
