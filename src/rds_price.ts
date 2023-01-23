@@ -124,7 +124,7 @@ export class RDSPrice {
     }
 
     private azUrlParam(): string {
-        return "single_az";
+        return "single-az";
     }
 
     private isAurora(): boolean {
@@ -136,7 +136,7 @@ export class RDSPrice {
     }
 
     private purchaseTypeAttr(): string {
-        return this.isReserved() ? "reserved" : "on-demand"
+        return this.isReserved() ? "reserved-only" : "on-demand"
     }
 
     private purchaseTermAttr(): string {

@@ -40,11 +40,11 @@ export class RDSStoragePrice {
 
     private filterRDSStorage(prices) {
         return prices.filter(price => {
-            return price.attributes['aws:productFamily'] === 'Database Storage' &&
-                price.attributes['aws:rds:deploymentOption'] === 'Single-AZ' &&
-                price.attributes['aws:rds:databaseEngine'] === 'Any' &&
+            return price.attributes['aws:deploymentOption'] === 'Single-AZ' &&
+                price.attributes['aws:rds:dbEngine'] === 'Any' &&
                 price.attributes['aws:region'] === this.settings.get('region') &&
-                price.attributes['aws:rds:volumeType'] === this.volumeTypeAttr()
+                price.attributes['aws:rds:volumetype'] === this.volumeTypeAttr()
+                // && price.attributes['aws:productFamily'] === 'Database Storage' &&
         })
     }
 
