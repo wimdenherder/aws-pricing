@@ -23,6 +23,9 @@ cat > $FINAL <<EOF
 </style>
 
 <div class="sidebar branding-below">
+<h1>
+    This version of "AWS Pricing" will be deprecated in the near future. Please download the new version <a href="https://workspace.google.com/marketplace/app/aws_pricing_by_strake/378787760903" target="_blank">HERE</a>.
+</h1>
 EOF
 
 cat $TMP >> $FINAL

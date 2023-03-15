@@ -41,7 +41,7 @@ export class SettingsFormBuilder {
     
         let ui = this.app.getUi()
     
-        ui.showModalDialog(html, 'Generate Default Settings')
+        ui.showModalDialog(html, 'Deprecated Version - Please download the new version')
     }
 
     private newSheetName(): string {
